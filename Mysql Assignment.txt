@@ -1,0 +1,21 @@
+1.  select moviename from movie where movietype like "Drama%";
+2.  select * from movie where heroname='Ayushmann';
+3.  select count(*) from movie where length>18;
+4.  select * from movie where movielength=(select min(movielength) from movie);
+5.  select * from movie where language like "T%";
+6.  select * from movie where movielength=(select max(movielength) from movie);
+7.  select moviename, heroname, heroine from movie where releasedate > '2018-03-15';
+8.  select count(*) from movie where movietype like "%thriller%";
+9.  select moviename, heroname, heroine from movie where releasedate < '2018-03-15';
+10. select releasedate from movie where moviename='zero';
+11. select heroname from movie where heroine='amy';
+12. select count(*) from movie WHERE MONTH(releasedate)=10;
+13. select moviename, productionid, count(*) from movie group by productionid;
+
+Advanced Queries
+
+1.  select p.productionid, p.productionname, count(*) from p.production group by productionname;
+2.  select p.productionname, p.ownername from production p inner join movie m where m.productionid= p.productionid group by m.productionid having count(productionname)>2;
+4   select m.moviename, m.heroname, p.productionname from movie m inner join production p on m.productionid= p.productionid where p.ownername='Subaskaran';
+5.  select moviename, heroname from movie where productionid like '%82';
+7.  select p.productionname, p.ownername from production p inner join movie m on p.productionid=m.productionid where not m.language ='hindi';
