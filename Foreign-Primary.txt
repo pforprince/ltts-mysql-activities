@@ -1,3 +1,9 @@
+mysql> create table customers(id int primary key auto_increment, name varchar(50));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> create table orders(id int primary key auto_increment, order_title varchar(50), customer_id int, constraint fk_key foreign key (customer_id) references customers(id));
+Query OK, 0 rows affected (0.06 sec)
+
 mysql> desc customers;
 +-------+-------------+------+-----+---------+----------------+
 | Field | Type        | Null | Key | Default | Extra          |
