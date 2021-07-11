@@ -18,4 +18,6 @@ Advanced Queries
 2.  select p.productionname, p.ownername from production p inner join movie m where m.productionid= p.productionid group by m.productionid having count(productionname)>2;
 4   select m.moviename, m.heroname, p.productionname from movie m inner join production p on m.productionid= p.productionid where p.ownername='Subaskaran';
 5.  select moviename, heroname from movie where productionid like '%82';
+6.  select p.productionname, p.ownername from production p where p.productionid not in (select m.productionid from movie m);
 7.  select p.productionname, p.ownername from production p inner join movie m on p.productionid=m.productionid where not m.language ='hindi';
+11. select p.productionname, p.ownername from production p where p.productionid not in (select m.productionid from movie m);
