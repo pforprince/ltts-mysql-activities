@@ -1,0 +1,46 @@
+mysql> select * from students;
++----+--------+-------+
+| id | name   | marks |
++----+--------+-------+
+|  1 | Ram    |  1000 |
+|  2 | Rohan  |   100 |
+|  3 | Shayam |    80 |
+|  4 | John   |    70 |
+|  5 | Kal    |    65 |
+|  6 | Jack   |    55 |
+|  7 | Rock   |    95 |
+|  8 | John   |    70 |
+|  9 | Kal    |    65 |
+| 10 | Jack   |    55 |
+| 11 | Rock   |    95 |
+| 12 | Jatin  |    80 |
+| 13 | Kartik |    80 |
++----+--------+-------+
+
+Creating Procedure
+mysql> delimiter !!
+mysql> create procedure createResult(in marks int)
+    -> begin
+    -> select s.name, s.marks, if(s.marks> marks, "PASS", "FAIL") as Result from students s;
+    -> end !!
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> call createResult(70);
++--------+-------+--------+
+| name   | marks | Result |
++--------+-------+--------+
+| Ram    |  1000 | PASS   |
+| Rohan  |   100 | PASS   |
+| Shayam |    80 | PASS   |
+| John   |    70 | FAIL   |
+| Kal    |    65 | FAIL   |
+| Jack   |    55 | FAIL   |
+| Rock   |    95 | PASS   |
+| John   |    70 | FAIL   |
+| Kal    |    65 | FAIL   |
+| Jack   |    55 | FAIL   |
+| Rock   |    95 | PASS   |
+| Jatin  |    80 | PASS   |
+| Kartik |    80 | PASS   |
++--------+-------+--------+
