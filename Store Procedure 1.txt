@@ -18,6 +18,21 @@ mysql> select * from students;
 +----+--------+-------+
 
 Creating Procedure
+
+
+IN Procedure
+mysql> create procedure insertData(in name varchar(50), in marks int)
+    -> begin
+    -> insert into students (name, marks) values (name, marks);
+    -> select * from students;
+    -> end @@
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call insertData("Kartik",80);
+    -> @@
+
+
+Conditional Procedure
 mysql> delimiter !!
 mysql> create procedure createResult(in marks int)
     -> begin
