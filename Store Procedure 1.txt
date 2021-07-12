@@ -20,7 +20,7 @@ mysql> select * from students;
 Creating Procedure
 
 
-IN Procedure
+IN Procedure --
 mysql> create procedure insertData(in name varchar(50), in marks int)
     -> begin
     -> insert into students (name, marks) values (name, marks);
